@@ -78,6 +78,7 @@ import static twitter4j.internal.util.ParseUtil.*;
     private boolean translator;
     private int listedCount;
     private boolean isFollowRequestSent;
+    public String jsonString;
     private static final long serialVersionUID = -6345893237975349030L;
 
     /*package*/UserJSONImpl(HttpResponse res) throws TwitterException {
@@ -95,6 +96,7 @@ import static twitter4j.internal.util.ParseUtil.*;
 
     private void init(JSONObject json) throws TwitterException {
         try {
+        	jsonString = json.toString();
             id = getInt("id", json);
             name = getRawString("name", json);
             screenName = getRawString("screen_name", json);
